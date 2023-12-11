@@ -1,8 +1,3 @@
-
-rm(list = ls())
-
-
-
 ols <- function(formula, data, weights = NULL) {
   tryCatch({
     
@@ -171,11 +166,10 @@ confint.ols <- function(model, alpha = 0.05) {
 mod <- ols(Sepal.Length ~ ., data = iris)
 mod
 lin <- lm(Sepal.Length ~ ., data = iris)
-vcov(mod)
+lin
 
 plot(mod)
-S <- summary(mod)
-S
+summary(mod)
 
 wls <- ols(Sepal.Length ~ ., data = iris, weights = c(rep(1,100),rep(3.5,50)))
 lin_wls <- lm(Sepal.Length ~ ., data = iris, weights = c(rep(1,100),rep(3.5,50)))
